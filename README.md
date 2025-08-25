@@ -100,4 +100,9 @@ cluster_summary <- rfm_data_clean %>%
 
 print(cluster_summary)
 ```
+- Recency: How recently a customer made a purchase.
+
+- Frequency: How often they make purchases.
+
+- Monetary: The total amount of money they've spent.
 
