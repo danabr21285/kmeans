@@ -77,4 +77,4 @@ set.seed(123)
 km_result <- kmeans(rfm_scaled, centers = 4, nstart = 25)
 ```
 - Visualize the Clusters: `factoextra` makes it easy to create a polished visualization of the clusters. It automatically performs dimensionality reduction (like PCA) to plot the clusters in 2D.
-![Clusters](silhouette.png)
+![Clusters](Clusters.png)
