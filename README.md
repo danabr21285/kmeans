@@ -54,5 +54,17 @@ rfm_data_clean$MonetaryLog <- log(rfm_data_clean$MonetaryValue)
 ## Step 2: Determine the Optimal Number of Clusters (K)
 - Elbow Method: Calculates the variance explained as a function of the number of clusters. Look for an "elbow" in the plot where adding more clusters doesn't significantly improve the model.
 ```
+# Use fviz_nbclust to find and visualize the optimal number of clusters
+fviz_nbclust(rfm_scaled, kmeans, method = "wss") +
+  labs(subtitle = "Elbow Method")
+```
+![Elbow Plot](Elbow.png)
+
+----
+- Silhouette Method: Measures how similar a data point is to its own cluster compared to other clusters. A higher average silhouette width indicates better-defined clusters.
+```
+fviz_nbclust(rfm_scaled, kmeans, method = "silhouette") +
+  labs(subtitle = "Silhouette Method")
+```
 
 
