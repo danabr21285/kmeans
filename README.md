@@ -50,3 +50,9 @@ ggplot(rfm_data_clean, aes(x = MonetaryValue)) +
 ```
 rfm_data_clean$MonetaryLog <- log(rfm_data_clean$MonetaryValue)
 ```
+---
+## Step 2: Determine the Optimal Number of Clusters (K)
+- Elbow Method: Calculates the variance explained as a function of the number of clusters. Look for an "elbow" in the plot where adding more clusters doesn't significantly improve the model.
+```
+
+
