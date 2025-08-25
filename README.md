@@ -77,4 +77,27 @@ set.seed(123)
 km_result <- kmeans(rfm_scaled, centers = 4, nstart = 25)
 ```
 - Visualize the Clusters: `factoextra` makes it easy to create a polished visualization of the clusters. It automatically performs dimensionality reduction (like PCA) to plot the clusters in 2D.
-![Clusters](Clusters.png)
+
+![Clusters](Cluster.png)
+
+## Step : Profile and Interpret the Segments
+What does each segment mean?
+Add Cluster Assignments to Original Data: Add the cluster number back to your non-scaled data to interpret the results.
+```
+rfm_data_clean$Cluster <- as.factor(km_result$cluster)
+```
+- Analyze Segment Characteristics: Use `dplyr` to group by cluster and calculate the average Recency, Frequency, and Monetary value for each segment.
+```
+cluster_summary <- rfm_data_clean %>%
+  group_by(Cluster) %>%
+  summarise(
+    Avg_Recency = mean(Recency),
+    Avg_Frequency = mean(Frequency),
+    Avg_Monetary = mean(MonetaryValue),
+    Customer_Count = n()
+  ) %>%
+  arrange(desc(Avg_Monetary))
+
+print(cluster_summary)
+```
+
