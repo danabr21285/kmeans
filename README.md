@@ -66,5 +66,15 @@ fviz_nbclust(rfm_scaled, kmeans, method = "wss") +
 fviz_nbclust(rfm_scaled, kmeans, method = "silhouette") +
   labs(subtitle = "Silhouette Method")
 ```
+![Silhouette Method](silhouette.png)
 
+## Step 3: Build and Visualize the K-Means Model
+```
+# Set a seed for reproducibility
+set.seed(123)
 
+# Perform k-means clustering with k = 4
+km_result <- kmeans(rfm_scaled, centers = 4, nstart = 25)
+```
+- Visualize the Clusters: `factoextra` makes it easy to create a polished visualization of the clusters. It automatically performs dimensionality reduction (like PCA) to plot the clusters in 2D.
+![Clusters](silhouette.png)
