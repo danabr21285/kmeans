@@ -44,6 +44,7 @@ ggplot(rfm_data_clean, aes(x = MonetaryValue)) +
   geom_histogram(bins = 30, fill = "skyblue", color = "black") +
   ggtitle("Distribution of Monetary Value")
 ```
+![Cluster Profiles](Capture2.PNG)
 
 # Highly skewed, Applied a log transform.
 ```
